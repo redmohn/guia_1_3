@@ -39,6 +39,10 @@ public class ControladorDivisa {
     Divisa brlJpy = new Divisa("BRL-JPY", new BigDecimal(33.61860));
     Divisa brlBrl = new Divisa("BRL-BRL", new BigDecimal(1.000000));
     
+    public BigDecimal validarMonto(String montoOrigen){
+        
+        return capital;
+    }
     
     
     public BigDecimal calcular(BigDecimal capital, BigDecimal tasaCambio){
@@ -47,5 +51,9 @@ public class ControladorDivisa {
         //total = capital*tasaCambio;        
         return this.total;
     }
+    
+    
+    
+    
   
 }

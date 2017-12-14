@@ -41,14 +41,14 @@ public class Aplicacion extends javax.swing.JFrame {
 
         jLabel1.setText("Conversor de Divisas");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLP - Peso Chileno", "USD - Dolar americano", "EUR - Euro", "JPY - Yen japones", "BRL - Real brasileno" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLP", "USD", "EUR", "JPY", "BRL" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLP - Peso Chileno", "USD - Dolar americano", "EUR - Euro", "JPY - Yen japones", "BRL - Real brasileno" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLP", "USD", "EUR", "JPY", "BRL" }));
         jComboBox2.setSelectedIndex(1);
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +170,16 @@ public class Aplicacion extends javax.swing.JFrame {
 
     // Boton CONVERTIR DIVISA
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String origen,destino, divisa, montoOrigen;
+        
+        montoOrigen = jTextField1.getText();
+        origen = (String) jComboBox1.getSelectedItem();
+        destino = (String) jComboBox2.getSelectedItem();
+        divisa = origen+"-"+destino;
+        
+        
+
+        jLabel3.setText(divisa);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
