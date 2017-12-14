@@ -3,6 +3,7 @@ package cl.polett.divisas.controlador;
 import cl.polett.divisas.modelo.Divisa;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,8 +11,9 @@ import java.math.BigDecimal;
  */
 public class ControladorDivisa {
     
-    public BigDecimal capital;
+   // public BigDecimal capital;
     public BigDecimal total;
+    public BigDecimal tasa;
     
     Divisa clpClp = new Divisa("CLP-CLP", new BigDecimal(1.000000));
     Divisa clpUsd = new Divisa("CLP-USD", new BigDecimal(0.001568));
@@ -39,17 +41,36 @@ public class ControladorDivisa {
     Divisa brlJpy = new Divisa("BRL-JPY", new BigDecimal(33.61860));
     Divisa brlBrl = new Divisa("BRL-BRL", new BigDecimal(1.000000));
     
+    ArrayList<Divisa> listaDivisas = new ArrayList<>();
+    
     public BigDecimal validarMonto(String montoOrigen){
+        
+        BigDecimal capital = new BigDecimal(montoOrigen);
         
         return capital;
     }
     
     
-    public BigDecimal calcular(BigDecimal capital, BigDecimal tasaCambio){
+    public BigDecimal calcular(String divisaOD, BigDecimal capital){
         
-        this.total = capital.multiply(tasaCambio);
-        //total = capital*tasaCambio;        
-        return this.total;
+        
+        
+        for (Divisa divisa : listaDivisas){
+            if (divisaOD.equals(divisa.getNombre())){
+                tasa = divisa.getTasaCambio();
+            }
+        }        
+        
+       total = capital.multiply(tasa);
+       //total = capital*tasaCambio;        
+       return total;
+    }
+
+    public ControladorDivisa() {
+    }
+
+    public ControladorDivisa(BigDecimal total) {
+        this.total = total;
     }
     
     
