@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cl.polett.divisas.controlador;
 
 import cl.polett.divisas.modelo.Divisa;
@@ -13,7 +8,7 @@ import java.math.BigDecimal;
  *
  * @author polett
  */
-public class controladorDivisa {
+public class ControladorDivisa {
     
     public BigDecimal capital;
     public BigDecimal total;
@@ -46,9 +41,9 @@ public class controladorDivisa {
     
     
     
-    public BigDecimal calcular(BigDecimal tasaCambio){
+    public BigDecimal calcular(BigDecimal capital, BigDecimal tasaCambio){
         
-        this.total = capital.multiply(capital);
+        this.total = capital.multiply(tasaCambio);
         //total = capital*tasaCambio;        
         return this.total;
     }
